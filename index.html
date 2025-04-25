@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Response Dashboard</title>
+  <style>
+    body {
+      background-color: #121212;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff3c38;
+      animation: flicker 1s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .info {
+      margin-bottom: 20px;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    .info.show {
+      opacity: 1;
+    }
+    .info h2 {
+      color: #00ff88;
+    }
+    .cctv img {
+      width: 100%;
+      max-width: 500px;
+      border: 2px solid #FFD700;
+      border-radius: 8px;
+    }
+    .route {
+      color: #5db7de;
+    }
+    .status {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="alert">⚠️ LIVE MEDICAL ALERT</h1>
+
+  <div id="info1" class="info">
+    <p><strong>Name:</strong> Ahmed Al-Saeed</p>
+  </div>
+
+  <div id="info2" class="info">
+    <p><strong>Age:</strong> 65</p>
+    <p class="status">Status: CRITICAL - Heatstroke Suspected</p>
+  </div>
+
+  <div id="info3" class="info">
+    <p><strong>Location:</strong> Zone D - Gate 4</p>
+    <p class="route"><strong>Route:</strong><br>
+      → Entry East Gate<br>
+      → Route 12B<br>
+      → Turn at Walkway D<br>
+      → Target GPS Locked
+    </p>
+  </div>
+
+  <div id="info4" class="info">
+    <h2>📈 CCTV Live Feed</h2>
+    <div class="cctv">
+      <img src="cctv_surveillance_target.png" alt="Live CCTV View">
+    </div>
+  </div>
+
+  <div id="info5" class="info">
+    <h2>🧠 AI Action Plan</h2>
+    <p>Dispatch Emergency Team - ETA: 3 Minutes</p>
+  </div>
+
+  <script>
+    function revealSequentially(ids, delay) {
+      ids.forEach((id, index) => {
+        setTimeout(() => {
+          document.getElementById(id).classList.add('show');
+        }, delay * index);
+      });
+    }
+
+    // Sequence for dramatic effect
+    window.onload = function() {
+      revealSequentially(['info1', 'info2', 'info3', 'info4', 'info5'], 2000);
+    };
+  </script>
+</body>
+</html>
